@@ -1,0 +1,38 @@
+﻿@model WebStore.ViewModels.EmployeeView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<html>
+<head>
+    <title>Details</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <td>LastName</td>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <td>FirstName</td>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <td>Patronymic</td>
+            <td>@Model.Patronymic</td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>@Model.Age</td>
+        </tr>
+    </table>
+    
+    @Html.ActionLink("Return to Main page", actionName:"Index")
+</body>
+</html>
+
