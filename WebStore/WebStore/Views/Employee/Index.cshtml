@@ -1,0 +1,21 @@
+﻿@model List<WebStore.ViewModels.EmployeeView>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Список сотрудников</h2>
+<table>
+    @foreach (var item in Model)
+     {
+     <tr>
+        <td>
+           @Html.ActionLink(item.Id.ToString(), actionName: "Details", routeValues: new { id = item.Id })                
+        </td>
+        <td>@item.FirstName</td>
+        <td>@item.LastName</td>
+        <td>@item.Patronymic</td>
+        <td>@item.Age</td>
+     </tr>
+     }
+</table>
