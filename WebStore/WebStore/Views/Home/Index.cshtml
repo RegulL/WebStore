@@ -1,32 +1,24 @@
-﻿@model List<WebStore.ViewModels.EmployeeView>
-
+﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewBag.Title = "Home | My E-Shopper";
 }
 
+@await Html.PartialAsync(partialViewName: "Partial/_Slider")
 
-<!DOCTYPE html>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                @await Html.PartialAsync(partialViewName: "Partial/_LeftSideBar")
+            </div>
 
-<html>
-<head>
-    <title>Index</title>
-</head>
-<body>
-    <h2>Список сотрудников</h2>
+            <div class="col-sm-9 padding-right">
+                @await Html.PartialAsync(partialViewName: "Partial/_FeaturesItems")
 
-    <table>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.ActionLink(item.Id.ToString(), actionName: "Details", routeValues: new { id = item.Id })                
-            </td>
-            <td>@item.FirstName</td>
-            <td>@item.LastName</td>
-            <td>@item.Patronymic</td>
-            <td>@item.Age</td>
-        </tr>
-        }
-    </table>
-</body>
-</html>
+                @await Html.PartialAsync(partialViewName: "Partial/_CategoryTab")
+
+                @await Html.PartialAsync(partialViewName: "Partial/_RecommendedItems")
+            </div>
+        </div>
+    </div>
+</section>
