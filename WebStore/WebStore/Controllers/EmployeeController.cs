@@ -4,50 +4,76 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebStore.Infrastructure.Interfaces;
 using WebStore.ViewModels;
+using WebStore.Infrastructure;
 
 namespace WebStore.Controllers
 {
+    [Route(template:"users")]
     public class EmployeeController : Controller
     {
-        private readonly List<EmployeeView> _employees = new List<EmployeeView>
+        private readonly IEmployeeService _employeeService;
+        public EmployeeController(IEmployeeService employeeService)
         {
-            new EmployeeView
-            {
-                Id = 1,
-                FirstName = "Ivan",
-                LastName = "Ivanov",
-                Patronymic = "Ivanovich",
-                Age = 22
-            },
-            new EmployeeView
-            {
-                Id = 2,
-                FirstName = "Vlad",
-                LastName = "Petrov",
-                Patronymic = "Ivanovich",
-                Age = 23
-            },
-            new EmployeeView
-            {
-                Id = 3,
-                FirstName = "Nikitin",
-                LastName = "Nikita",
-                Patronymic = "Sergeevich",
-                Age = 30
-            }
-        };
-
+            _employeeService = employeeService;
+        }
         // GET: Home
+        [Route(template:"all")]
         public ActionResult Index()
         {
             //return Content("Hello from first controller!");
-            return View(_employees);
+            return View(_employeeService.GetAll());
         }
 
+        [Route(template:"{id}")]
         public ActionResult Details(int id)
         {
-            return View(_employees.FirstOrDefault(x => x.Id == id));
+            return View(_employeeService.GetById(id));
+        }
+
+        [Route("edit/{id?}")]
+        public IActionResult Edit(int? id)
+        {
+            if (!id.HasValue)
+                return View(new EmployeeView());
+            EmployeeView model = _employeeService.GetById(id.Value);
+            if (model == null)
+                return NotFound();
+            return View(model);
+        }
+
+        [HttpPost]
+        [EditActionFilter]
+        [Route("edit/{id?}")]
+        public IActionResult Edit(EmployeeView model)
+        { 
+            if (model.Id > 0)
+            {
+                var dbItem = _employeeService.GetById(model.Id);
+
+                if (ReferenceEquals(dbItem, null))
+                    return NotFound();
+
+                dbItem.FirstName = model.FirstName;
+                dbItem.LastName = model.LastName;
+                dbItem.Age = model.Age;
+                dbItem.Patronymic = model.Patronymic;
+            }
+            else
+            {
+                _employeeService.AddNew(model);
+            }
+            _employeeService.Commit();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [Route("delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            _employeeService.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }
