@@ -25,6 +25,7 @@ namespace WebStore
         {
             services.AddMvc();
             services.AddSingleton<IEmployeeService, EmployeeService>();
+            services.AddSingleton<IProductService, InMemoryProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
