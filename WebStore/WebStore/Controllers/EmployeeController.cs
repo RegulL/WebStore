@@ -44,10 +44,19 @@ namespace WebStore.Controllers
         }
 
         [HttpPost]
-        [EditActionFilter]
         [Route("edit/{id?}")]
         public IActionResult Edit(EmployeeView model)
-        { 
+        {
+            if (model.Age < 18 || model.Age > 100)
+            {
+                ModelState.AddModelError(key: "Age", errorMessage: "Age is incorrect");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             if (model.Id > 0)
             {
                 var dbItem = _employeeService.GetById(model.Id);
