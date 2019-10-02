@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebStore.DAL;
+using WebStore.DomainNew.Entities;
 using WebStore.Infrastructure.Interfaces;
 using WebStore.Infrastructure.Services;
 
@@ -33,6 +35,27 @@ namespace WebStore
 
             services.AddDbContext<WebStoreContext>(optionsAction: options => options.UseSqlServer
             (Configuration.GetConnectionString(name: "DefaultConnection")));
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<WebStoreContext>()
+                .AddDefaultTokenProviders();
+
+            services.Configure<IdentityOptions>(option =>
+            {
+                option.Password.RequiredLength = 4;
+                option.Password.RequireLowercase = false;
+                option.Password.RequireUppercase = false;
+                option.Password.RequireDigit = false;
+                option.Password.RequireNonAlphanumeric = false;
+
+                option.User.RequireUniqueEmail = true;
+            });
+
+            services.ConfigureApplicationCookie(o =>
+            {
+               o.Cookie.Expiration = TimeSpan.FromDays(100);
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +67,8 @@ namespace WebStore
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseWelcomePage("/welcome");
 

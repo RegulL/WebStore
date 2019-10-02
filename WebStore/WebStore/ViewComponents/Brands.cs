@@ -34,7 +34,7 @@ namespace WebStore.ViewComponents
                     Id = b.Id,
                     Name = b.Name,
                     Order = b.Order,
-                    Sum = _productService.GetProducts(new ProductFilter() { CategoryId = null, BrandId = null }).Where(p => p.BrandId == b.Id).Count()
+                    Sum = _productService.GetProducts(new ProductFilter() { CategoryId = null, BrandId = b.Id }).Count()
                 });
             }
             brandvm = brandvm.OrderBy(b => b.Order).ToList();
