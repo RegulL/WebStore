@@ -1,4 +1,4 @@
-﻿
+﻿@model WebStore.ViewModels.CatalogViewModel
 @{
     ViewBag.Title = "Home | My E-Shopper";
 }
@@ -13,7 +13,7 @@
             </div>
 
             <div class="col-sm-9 padding-right">
-                @await Html.PartialAsync(partialViewName: "Partial/_FeaturesItems")
+                @await Html.PartialAsync(partialViewName: "Partial/_ShopFeaturesItems", model: Model.Products)
 
                 @await Html.PartialAsync(partialViewName: "Partial/_CategoryTab")
 

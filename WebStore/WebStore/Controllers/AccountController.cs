@@ -85,6 +85,7 @@ namespace WebStore.Controllers
             }
 
             await _signInManager.SignInAsync(user, isPersistent: false);
+            await _userManager.AddToRoleAsync(user, role: "User");
 
             return RedirectToAction("Index", controllerName: "Home");
         }

@@ -1,7 +1,10 @@
-﻿
+﻿@model WebStore.ViewModels.CartViewModel
 @{
-    ViewBag.Title = "Cart | My E-Shopper";
+    ViewBag.Title = "Details | My E-Shopper";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var summ = Model.Items.Sum(i => { int s = (int)i.Key.Price * i.Value; return s; });
 }
+
 
 <section id="cart_items">
     <div class="container">
@@ -24,81 +27,46 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                   @foreach (var item in Model.Items)
+                    {
+                        <tr>
                         <td class="cart_product">
-                            <a href=""><img src="~/images/cart/one.png" alt=""></a>
+                            <a href=""><img src="~/images/shop/@item.Key.ImageUrl" alt=""></a>
                         </td>
                         <td class="cart_description">
-                            <h4><a href="">Colorblock Scuba</a></h4>
+                            <h4>
+                                <a asp-action="ProductDetails" asp-controller="Catalog" asp-route-id="@item.Key.Id">
+                                    @item.Key.Name
+                                </a>
+                            </h4>
                             <p>Web ID: 1089772</p>
                         </td>
                         <td class="cart_price">
-                            <p>$59</p>
+                            <p>@(item.Key.Price.ToString(format:"C"))</p>
                         </td>
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                <a class="cart_quantity_down" href=""> - </a>
+                                <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.Key.Id"
+                                 asp-route-retUrl="@Context.Request.Path" class="cart_quantity_up"> + 
+                                </a>
+                                <input class="cart_quantity_input" type="text" name="quantity" value="@item.Value" autocomplete="off" size="2">
+                                <a asp-controller="Cart"
+                                    asp-action="DecrementFromCart" asp-route-id="@item.Key.Id" class="cart_quantity_down"> -
+                                </a>
                             </div>
                         </td>
                         <td class="cart_total">
-                            <p class="cart_total_price">$59</p>
+                            <p class="cart_total_price">@((item.Value * item.Key.Price).ToString(format:"C"))</p>
                         </td>
                         <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            <a class="cart_quantity_delete" asp-controller="Cart"
+                                asp-action="RemoveFromCart"
+                                asp-route-id="@item.Key.Id">
+                                <i class="fa fa-times"></i>
+                            </a>
                         </td>
-                    </tr>
-                    <tr>
-                        <td class="cart_product">
-                            <a href=""><img src="~/images/cart/two.png" alt=""></a>
-                        </td>
-                        <td class="cart_description">
-                            <h4><a href="">Colorblock Scuba</a></h4>
-                            <p>Web ID: 1089772</p>
-                        </td>
-                        <td class="cart_price">
-                            <p>$59</p>
-                        </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                <a class="cart_quantity_down" href=""> - </a>
-                            </div>
-                        </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">$59</p>
-                        </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="cart_product">
-                            <a href=""><img src="~/images/cart/three.png" alt=""></a>
-                        </td>
-                        <td class="cart_description">
-                            <h4><a href="">Colorblock Scuba</a></h4>
-                            <p>Web ID: 1089772</p>
-                        </td>
-                        <td class="cart_price">
-                            <p>$59</p>
-                        </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                <a class="cart_quantity_down" href=""> - </a>
-                            </div>
-                        </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">$59</p>
-                        </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                        </td>
-                    </tr>
+                     </tr>
+                    }
                 </tbody>
             </table>
         </div>
@@ -168,10 +136,10 @@
             <div class="col-sm-6">
                 <div class="total_area">
                     <ul>
-                        <li>Cart Sub Total <span>$59</span></li>
-                        <li>Eco Tax <span>$2</span></li>
+                        <li>Cart Sub Total <span>@summ.ToString(format: "C")</span></li>
+                        <li>Eco Tax <span>$0</span></li>
                         <li>Shipping Cost <span>Free</span></li>
-                        <li>Total <span>$61</span></li>
+                        <li>Total <span>@summ.ToString(format: "C")</span></li>
                     </ul>
                     <a class="btn btn-default update" href="">Update</a>
                     <a class="btn btn-default check_out" href="">Check Out</a>

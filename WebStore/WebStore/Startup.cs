@@ -54,8 +54,10 @@ namespace WebStore
             services.ConfigureApplicationCookie(o =>
             {
                o.Cookie.Expiration = TimeSpan.FromDays(100);
-
             });
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<ICartService, CookieCartService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

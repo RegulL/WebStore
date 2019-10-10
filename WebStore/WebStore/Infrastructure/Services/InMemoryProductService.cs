@@ -410,6 +410,11 @@ namespace WebStore.Infrastructure.Services
             return _categories;
         }
 
+        public Product GetProductById(int id)
+        {
+            return _products.FirstOrDefault(p => p.Id == id);
+        }
+
         public IEnumerable<Product> GetProducts(ProductFilter filter)
         {
             var products = _products;
