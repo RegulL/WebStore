@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebStore.DAL;
 
 namespace WebStore.DAL.Migrations
 {
     [DbContext(typeof(WebStoreContext))]
-    partial class WebStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20191012181203_added_prop_name_to_order")]
+    partial class added_prop_name_to_order
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,8 +1,8 @@
-﻿@model WebStore.ViewModels.CartViewModel
+﻿@model WebStore.ViewModels.OrderDetailsViewModel
 @{
     ViewBag.Title = "Details | My E-Shopper";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var summ = Model.Items.Sum(i => { int s = (int)i.Key.Price * i.Value; return s; });
+    var summ = Model.CartViewModel.Items.Sum(i => { var s = i.Key.Price * i.Value; return s; });
 }
 
 
@@ -27,7 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                   @foreach (var item in Model.Items)
+                   @foreach (var item in Model.CartViewModel.Items)
                     {
                         <tr>
                         <td class="cart_product">
@@ -73,6 +73,18 @@
     </div>
 </section> <!--/#cart_items-->
 <section id="do_action">
+    <div class="heading">
+        <h3>Оформите заказ</h3>
+    </div>
+    <div class="row login-form">
+        @Html.Partial("_OrderPartial", Model.OrderViewModel, new ViewDataDictionary(ViewData) { { "sumCart", summ } })
+    </div>
+</section>
+
+
+
+
+@*<section id="do_action">
     <div class="container">
         <div class="heading">
             <h3>What would you like to do next?</h3>
@@ -147,4 +159,4 @@
             </div>
         </div>
     </div>
-</section><!--/#do_action-->
+</section>*@<!--/#do_action-->

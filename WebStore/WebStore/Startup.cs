@@ -30,6 +30,7 @@ namespace WebStore
             services.AddMvc();
 
             services.AddSingleton<IEmployeeService, EmployeeService>();
+            services.AddScoped<IOrdersService, SqlOrdersService>();
             //services.AddSingleton<IProductService, InMemoryProductService>();
             services.AddScoped<IProductService, SQLProductService>();
 
@@ -77,8 +78,12 @@ namespace WebStore
             app.UseMvc( routes => 
             {
                 routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");                
             });
 
             var hellomsg = Configuration["CustomHelloWorld"];
