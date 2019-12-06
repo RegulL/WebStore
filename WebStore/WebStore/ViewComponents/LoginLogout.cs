@@ -8,6 +8,11 @@ namespace WebStore.ViewComponents
 {
     public class LoginLogout : ViewComponent
     {
+        public LoginLogout()
+        {
+
+        }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
             return View();

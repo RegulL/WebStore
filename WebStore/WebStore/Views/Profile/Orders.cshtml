@@ -1,0 +1,37 @@
+﻿@model List<WebStore.ViewModels.UserOrderViewModel>
+@{
+    ViewBag.Title = "Orders | My E-Shopper";
+    Layout = "_ProfileLayout";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Summ
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Address</td>
+            <td>@item.Phone</td>
+            <td>@item.TotalSum.ToString(format: "C")</td>
+        </tr>
+    }
+</table>
