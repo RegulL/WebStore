@@ -4,19 +4,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.Domain.Filters;
+using WebStore.DomainNew.ViewModels;
 using WebStore.Infrastructure;
-using WebStore.Infrastructure.Interfaces;
-using WebStore.ViewModels;
+using WebStore.Interfaces;
+
 
 namespace WebStore.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IProductService _productService;
+        private readonly IValueService _valueService;
 
-        public HomeController(IProductService productService)
+        public HomeController(IProductService productService, IValueService valueService)
         {
             _productService = productService;
+            _valueService = valueService;
         }
 
         [SimpleActionFilter]
@@ -53,9 +56,10 @@ namespace WebStore.Controllers
             return View();
         }
 
-        public IActionResult Error404()
+        public async Task<IActionResult> Error404()
         {
-            return View();
+            var values = await _valueService.GetAsync();
+            return View(values);
         }
         public IActionResult ContactUs()
         {

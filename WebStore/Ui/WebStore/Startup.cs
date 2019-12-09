@@ -9,10 +9,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebStore.Clients.Services;
 using WebStore.DAL;
 using WebStore.DomainNew.Entities;
-using WebStore.Infrastructure.Interfaces;
-using WebStore.Infrastructure.Services;
+using WebStore.Interfaces;
+using WebStore.Services;
+using WebStore.Services.InMemory;
+using WebStore.Services.SQL;
 
 namespace WebStore
 {
@@ -33,6 +36,7 @@ namespace WebStore
             services.AddScoped<IOrdersService, SqlOrdersService>();
             //services.AddSingleton<IProductService, InMemoryProductService>();
             services.AddScoped<IProductService, SQLProductService>();
+            services.AddTransient<IValueService, ValuesClient>();
 
             services.AddDbContext<WebStoreContext>(optionsAction: options => options.UseSqlServer
             (Configuration.GetConnectionString(name: "DefaultConnection")));

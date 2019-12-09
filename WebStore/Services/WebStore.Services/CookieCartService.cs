@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Domain.Filters;
-using WebStore.Infrastructure.Interfaces;
-using WebStore.ViewModels;
+using WebStore.DomainNew.ViewModels;
+using WebStore.Interfaces;
 
-namespace WebStore.Infrastructure.Services
+namespace WebStore.Services
 {
     public class CookieCartService : ICartService
     {
