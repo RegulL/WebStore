@@ -4,17 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Domain.Entities.Base.Interfaces;
 
-namespace WebStore.ViewModels
+namespace WebStore.DomainNew.ViewModels
 {
-    public class BrandViewModel : INamedEntity, IOrderedEntity
+    public class ProductViewModel : INamedEntity, IOrderedEntity
     {
-        public BrandViewModel()
-        {
-
-        }
         public string Name { get; set; }
+
         public int Id { get; set; }
+
         public int Order { get; set; }
-        public int? Sum { get; set; }
+
+        public string ImageUrl { get; set; }
+
+        public decimal Price { get; set; }
+
+        public string BrandName { get; set; }
     }
 }
