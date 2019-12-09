@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Filters;
-using WebStore.Interfaces;
+using WebStore.Infrastructure.Interfaces;
 
-namespace WebStore.Services.InMemory
+namespace WebStore.Infrastructure.Services
 {
     public class InMemoryProductService : IProductService
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebStore.DomainNew.Entities;
-using WebStore.DomainNew.ViewModels;
+using WebStore.ViewModels;
 
-namespace WebStore.Interfaces
+namespace WebStore.Infrastructure.Interfaces
 {
     public interface IOrdersService
     {

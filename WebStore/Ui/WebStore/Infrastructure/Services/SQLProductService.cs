@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using WebStore.DAL;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Filters;
-using WebStore.Interfaces;
+using WebStore.Infrastructure.Interfaces;
 
-namespace WebStore.Services.SQL
+namespace WebStore.Infrastructure.Services
 {
     public class SQLProductService : IProductService
     {

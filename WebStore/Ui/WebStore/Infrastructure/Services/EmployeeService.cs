@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebStore.DomainNew.ViewModels;
-using WebStore.Interfaces;
+using WebStore.Infrastructure.Interfaces;
+using WebStore.ViewModels;
 
-namespace WebStore.Services.InMemory
+namespace WebStore.Infrastructure.Services
 {
     public class EmployeeService : IEmployeeService
     {
