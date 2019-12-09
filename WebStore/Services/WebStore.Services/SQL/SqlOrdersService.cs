@@ -5,11 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebStore.DAL;
 using WebStore.DomainNew.Entities;
-using WebStore.Infrastructure.Interfaces;
-using WebStore.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using WebStore.Interfaces;
+using WebStore.DomainNew.ViewModels;
 
-namespace WebStore.Infrastructure.Services
+namespace WebStore.Services.SQL
 {
     public class SqlOrdersService : IOrdersService
     {
