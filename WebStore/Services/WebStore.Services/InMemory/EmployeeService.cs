@@ -7,7 +7,7 @@ using WebStore.Interfaces;
 
 namespace WebStore.Services.InMemory
 {
-    public class EmployeeService : IEmployeeService
+    public class EmployeeService : IEmployeeData
     {
         public readonly List<EmployeeView> _employees;
 
@@ -44,6 +44,10 @@ namespace WebStore.Services.InMemory
 
         public void AddNew(EmployeeView model)
         {
+            if (model == null)
+            {
+                new ArgumentNullException(nameof(model));
+            }
             model.Id = _employees.Max(e => e.Id) + 1;
             _employees.Add(model);
         }
@@ -69,6 +73,30 @@ namespace WebStore.Services.InMemory
         public EmployeeView GetById(int id)
         {
             return _employees.FirstOrDefault(x => x.Id == id);
+        }
+
+        public EmployeeView UpdateEmployee(int id, EmployeeView entity)
+        {
+            if (entity == null) 
+            {
+                new ArgumentNullException(nameof(entity));
+            }
+
+            var employee = _employees.FirstOrDefault(e => e.Id == entity.Id);
+
+            if (employee == null) 
+            {
+                new InvalidOperationException("Do not find...");
+            }
+
+
+            employee.Age = entity.Age;
+            employee.FirstName = entity.FirstName;
+            employee.LastName = entity.LastName;
+            employee.Patronymic = entity.Patronymic;
+            
+            
+            return employee;
         }
     }
 }

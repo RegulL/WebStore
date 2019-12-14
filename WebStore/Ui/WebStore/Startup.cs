@@ -32,10 +32,10 @@ namespace WebStore
         {
             services.AddMvc();
 
-            services.AddSingleton<IEmployeeService, EmployeeService>();
+            services.AddSingleton<IEmployeeData, EmployeesClient>();
             services.AddScoped<IOrdersService, SqlOrdersService>();
             //services.AddSingleton<IProductService, InMemoryProductService>();
-            services.AddScoped<IProductService, SQLProductService>();
+            services.AddScoped<IProductService, ProductsClient>();
             services.AddTransient<IValueService, ValuesClient>();
 
             services.AddDbContext<WebStoreContext>(optionsAction: options => options.UseSqlServer
