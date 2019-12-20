@@ -6,7 +6,7 @@ using WebStore.DomainNew.ViewModels;
 
 namespace WebStore.Interfaces
 {
-    public interface IEmployeeService
+    public interface IEmployeeData
     {
         IEnumerable<EmployeeView> GetAll();
 
@@ -17,5 +17,7 @@ namespace WebStore.Interfaces
         void AddNew(EmployeeView model);
 
         void Delete(int id);
+
+        EmployeeView UpdateEmployee(int id, EmployeeView entity);
     }
 }

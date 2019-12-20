@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Filters;
+using WebStore.DomainNew.Dto;
 
 namespace WebStore.Interfaces
 {
@@ -13,8 +14,8 @@ namespace WebStore.Interfaces
 
         IEnumerable<Brand> GetBrands();
 
-        IEnumerable<Product> GetProducts(ProductFilter filter);
+        IEnumerable<ProductDto> GetProducts(ProductFilter filter);
 
-        Product GetProductById(int id);
+        ProductDto GetProductById(int id);
     }
 }

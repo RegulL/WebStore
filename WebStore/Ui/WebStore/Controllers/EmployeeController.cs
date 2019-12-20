@@ -15,8 +15,8 @@ namespace WebStore.Controllers
     [Authorize]
     public class EmployeeController : Controller
     {
-        private readonly IEmployeeService _employeeService;
-        public EmployeeController(IEmployeeService employeeService)
+        private readonly IEmployeeData _employeeService;
+        public EmployeeController(IEmployeeData employeeService)
         {
             _employeeService = employeeService;
         }

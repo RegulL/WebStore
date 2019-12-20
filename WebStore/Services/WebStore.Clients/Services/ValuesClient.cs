@@ -17,6 +17,8 @@ namespace WebStore.Clients.Services
             ServiceAddress = "api/values";
         }
 
+        protected override string ServiceAddress { get; } = "api/values";
+
         public HttpStatusCode Delete(int id)
         {
             var response = Client.DeleteAsync(requestUri: $"{ServiceAddress}/delete/{id}").Result;
