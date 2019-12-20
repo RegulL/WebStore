@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WebStore.Domain.Entities;
 using WebStore.DomainNew.Dto;
+using WebStore.DomainNew.Dto.Order;
+using WebStore.DomainNew.Entities;
 
 namespace WebStore.DomainNew.Helper
 {
@@ -17,6 +20,22 @@ namespace WebStore.DomainNew.Helper
                 Price = p.Price,
                 ImageUrl = p.ImageUrl,
                 Brand = p.BrandId.HasValue ? new BrandDto { Id = p.Brand.Id, Name = p.Brand.Name } : null
+            };
+
+        public static OrderDto OrderToDto(this Order o) =>
+            new OrderDto
+            {
+                Id = o.Id,
+                Name = o.Name,
+                Address = o.Address,
+                Date = o.Date,
+                Phone = o.Phone,
+                OrderItems = o.OrderItems.Select(oi => new OrderItemDto() 
+                {
+                    Id = oi.Id,
+                    Price = oi.Price,
+                    Quantity = oi.Quantity
+                })
             };
     }
 }

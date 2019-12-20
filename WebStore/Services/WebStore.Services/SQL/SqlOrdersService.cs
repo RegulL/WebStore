@@ -8,6 +8,8 @@ using WebStore.DomainNew.Entities;
 using Microsoft.EntityFrameworkCore;
 using WebStore.Interfaces;
 using WebStore.DomainNew.ViewModels;
+using WebStore.DomainNew.Dto.Order;
+using WebStore.DomainNew.Helper;
 
 namespace WebStore.Services.SQL
 {
@@ -21,7 +23,7 @@ namespace WebStore.Services.SQL
             _context = context;
             _userManager = userManager;
         }
-        public Order CreateOrder(OrderViewModel orderViewModel, CartViewModel cartViewModel, string userName)
+        public OrderDto CreateOrder(CreateOrderModel orderModel, string userName)
         {
             var user = _userManager.FindByNameAsync(userName).Result;
 
@@ -29,28 +31,27 @@ namespace WebStore.Services.SQL
             {
                 var order = new Order()
                 {
-                    Address = orderViewModel.Address,
-                    Name = orderViewModel.Name,
+                    Address = orderModel.OrderViewModel.Address,
+                    Name = orderModel.OrderViewModel.Name,
                     Date = DateTime.Now,
-                    Phone = orderViewModel.Phone,
+                    Phone = orderModel.OrderViewModel.Phone,
                     User = user
                 };
 
                 _context.Orders.Add(order);
 
-                foreach (var item in cartViewModel.Items)
+                foreach (var item in orderModel.OrderItems)
                 {
-                    var productVM = item.Key;
-                    var product = _context.Products.FirstOrDefault(p => p.Id == productVM.Id);
+                    var product = _context.Products.FirstOrDefault(p => p.Id.Equals(item.Id));
 
                     if (product == null)
                         throw new InvalidOperationException(message: "Товар не найден!");
 
                     var OrderItem = new OrderItem()
                     {
-                        Price = product.Price,
-                        Quantity = item.Value,
                         Order = order,
+                        Price = product.Price,
+                        Quantity = item.Quantity,                       
                         Product = product
                     };
 
@@ -58,25 +59,31 @@ namespace WebStore.Services.SQL
                 }
                 _context.SaveChanges();
                 trans.Commit();
-                return order;
+                return GetOrderById(order.Id);
             }
         }
 
-        public Order GetOrderById(int id)
+        public OrderDto GetOrderById(int id)
         {
-            return _context.Orders
+            var order = _context.Orders
                 .Include(navigationPropertyPath: o => o.User)
                 .Include(navigationPropertyPath: o => o.OrderItems)
                 .FirstOrDefault(o => o.Id == id);
+
+            if (order == null)
+                throw new ArgumentNullException(nameof(order));
+            return order.OrderToDto();
         }
 
-        public IEnumerable<Order> GetUserOrders(string userName)
+        public IEnumerable<OrderDto> GetUserOrders(string userName)
         {
-            return _context.Orders
+            var list = _context.Orders
                 .Include(navigationPropertyPath: o => o.User)
                 .Include(navigationPropertyPath: o => o.OrderItems)
                 .Where(o => o.User.UserName == userName)
                 .ToList();
+
+            return list.Select(o => o.OrderToDto()).ToList();
         }
     }
 }
