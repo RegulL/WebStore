@@ -9,10 +9,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using WebStore.Clients.Services;
 using WebStore.DAL;
 using WebStore.DomainNew.Entities;
 using WebStore.Interfaces;
+using WebStore.Logger;
 using WebStore.Services;
 using WebStore.Services.InMemory;
 using WebStore.Services.SQL;
@@ -75,16 +77,24 @@ namespace WebStore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddLog4net();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else 
+            {
+                app.UseExceptionHandler("/Home/Error");
             }
 
             app.UseStaticFiles();
 
             app.UseAuthentication();
+
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
             app.UseWelcomePage("/welcome");
 
@@ -99,12 +109,12 @@ namespace WebStore
                     template: "{controller=Home}/{action=Index}/{id?}");                
             });
 
-            var hellomsg = Configuration["CustomHelloWorld"];
+            //var hellomsg = Configuration["CustomHelloWorld"];
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync(hellomsg);
-            });
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync(hellomsg);
+            //});
         }
     }
 }
