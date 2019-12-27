@@ -6,14 +6,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 using WebStore.Clients.Services;
 using WebStore.DAL;
+using WebStore.DomainNew.Entities;
 using WebStore.Interfaces;
 using WebStore.Services;
 using WebStore.Services.InMemory;
@@ -35,6 +38,11 @@ namespace WebStore.ServicesHosting
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc(name: "v1", new Info { Title = "My WebStore Api", Version = "v1" });
+            });
+
             services.AddDbContext<WebStoreContext>(optionsAction: options => options.UseSqlServer
            (Configuration.GetConnectionString(name: "DefaultConnection")));
 
@@ -44,6 +52,9 @@ namespace WebStore.ServicesHosting
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ICartService, CookieCartService>();
+
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<WebStoreContext>()
+                .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +62,11 @@ namespace WebStore.ServicesHosting
         {
             if (env.IsDevelopment())
             {
+                app.UseSwagger();
+                app.UseSwaggerUI(c => 
+                {
+                    c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "My WebStore Api");
+                });
                 app.UseDeveloperExceptionPage();
             }
             else

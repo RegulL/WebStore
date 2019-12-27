@@ -56,12 +56,12 @@ namespace WebStore.Clients
             return await Client.DeleteAsync(requestUri: url);
         }
 
-        public HttpResponseMessage Post<T>(string url, T value) where T : new()
+        public HttpResponseMessage Post<T>(string url, T value)// where T : new()
         {
             return PostAsync<T>(url, value).Result;
         }
 
-        public async Task<HttpResponseMessage> PostAsync<T>(string url, T value) where T : new()
+        public async Task<HttpResponseMessage> PostAsync<T>(string url, T value)// where T : new()
         {
             var response = await Client.PostAsJsonAsync(requestUri: url, value: value);
             response.EnsureSuccessStatusCode();
