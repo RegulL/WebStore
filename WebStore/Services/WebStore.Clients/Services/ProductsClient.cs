@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
-using WebStore.Domain.Entities;
-using WebStore.Domain.Filters;
 using WebStore.DomainNew.Dto;
+using WebStore.DomainNew.Entities;
+using WebStore.DomainNew.Filters;
 using WebStore.Interfaces;
 
 namespace WebStore.Clients.Services

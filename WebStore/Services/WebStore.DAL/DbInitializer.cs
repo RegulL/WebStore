@@ -4,9 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WebStore.Domain.Entities;
-using Microsoft.Extensions.DependencyInjection;
 using WebStore.DomainNew.Entities;
+using Microsoft.Extensions.DependencyInjection;
 using System.Threading;
 
 namespace WebStore.DAL

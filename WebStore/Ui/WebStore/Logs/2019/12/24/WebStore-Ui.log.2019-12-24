@@ -1,0 +1,348 @@
+2019-12-24 10:03:13,379 [1] ?     - Application run...
+
+2019-12-24 10:03:42,205 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/  
+
+2019-12-24 10:03:46,111 [4] ?     - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller WebStore.Controllers.HomeController (WebStore).
+
+2019-12-24 10:03:47,261 [4] ?     - Executing action method WebStore.Controllers.HomeController.Index (WebStore) - Validation state: Valid
+
+2019-12-24 10:03:47,289 [4] ?     - Index action requsted
+
+2019-12-24 10:03:47,298 [4] ?     - Critical! All cats are beautiful!
+
+2019-12-24 10:03:47,302 [4] ?     - Error! All cats are beautiful!
+
+2019-12-24 10:03:47,319 [4] ?     - Warning! All cats are beautiful!
+
+2019-12-24 10:04:45,206 [4] ?     - Executed action method WebStore.Controllers.HomeController.Index (WebStore), returned result Microsoft.AspNetCore.Mvc.ViewResult in 57869.826ms.
+
+2019-12-24 10:04:45,543 [4] ?     - Executing ViewResult, running view Index.
+
+2019-12-24 10:04:49,382 [4] ?     - Executed ViewResult - view Index executed in 4101.9209ms.
+
+2019-12-24 10:04:49,446 [4] ?     - Executed action WebStore.Controllers.HomeController.Index (WebStore) in 63271.0023ms
+
+2019-12-24 10:04:49,512 [4] ?     - Request finished in 67273.7626ms 200 text/html; charset=utf-8
+
+2019-12-24 10:04:49,661 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/css/bootstrap.min.css  
+
+2019-12-24 10:04:50,200 [4] ?     - The file /css/bootstrap.min.css was not modified
+
+2019-12-24 10:04:50,214 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/css/main.css?v=zuUx1OCOA1RNcHI8q7q0bF-5ejTbJ0KdIQn43wo8Obo  
+
+2019-12-24 10:04:50,218 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44329/css/font-awesome.min.css  
+
+2019-12-24 10:04:50,222 [15] ?     - The file /css/main.css was not modified
+
+2019-12-24 10:04:50,225 [5] ?     - The file /css/font-awesome.min.css was not modified
+
+2019-12-24 10:04:50,253 [15] ?     - Request finished in 116.6826ms 304 text/css
+
+2019-12-24 10:04:50,262 [5] ?     - Request finished in 37.6831ms 304 text/css
+
+2019-12-24 10:04:50,269 [4] ?     - Request finished in 622.7275ms 304 text/css
+
+2019-12-24 10:04:50,272 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/css/price-range.css  
+
+2019-12-24 10:04:50,281 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44329/js/price-range.js  
+
+2019-12-24 10:04:50,286 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/css/prettyphoto.css  
+
+2019-12-24 10:04:50,296 [15] ?     - The file /css/price-range.css was not modified
+
+2019-12-24 10:04:50,308 [5] ?     - The file /js/price-range.js was not modified
+
+2019-12-24 10:04:50,311 [4] ?     - The file /css/prettyphoto.css was not modified
+
+2019-12-24 10:04:50,320 [15] ?     - Request finished in 36.3785ms 304 text/css
+
+2019-12-24 10:04:50,330 [5] ?     - Request finished in 45.0099ms 304 application/javascript
+
+2019-12-24 10:04:50,333 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/js/jquery.prettyPhoto.js  
+
+2019-12-24 10:04:50,339 [4] ?     - Request finished in 56.1012ms 304 text/css
+
+2019-12-24 10:04:50,349 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44329/js/main.js  
+
+2019-12-24 10:04:50,350 [15] ?     - The file /js/jquery.prettyPhoto.js was not modified
+
+2019-12-24 10:04:50,368 [5] ?     - The file /js/main.js was not modified
+
+2019-12-24 10:04:50,370 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/logo.png  
+
+2019-12-24 10:04:50,376 [15] ?     - Request finished in 26.0914ms 304 application/javascript
+
+2019-12-24 10:04:50,390 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/girl1.jpg  
+
+2019-12-24 10:04:50,400 [4] ?     - The file /images/home/logo.png was not modified
+
+2019-12-24 10:04:50,402 [5] ?     - Request finished in 42.3608ms 304 application/javascript
+
+2019-12-24 10:04:50,418 [15] ?     - The file /images/home/girl1.jpg was not modified
+
+2019-12-24 10:04:50,423 [4] ?     - Request finished in 53.8106ms 304 image/png
+
+2019-12-24 10:04:50,434 [15] ?     - Request finished in 48.1732ms 304 image/jpeg
+
+2019-12-24 10:04:50,436 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/gallery4.jpg  
+
+2019-12-24 10:04:50,445 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/iframe1.png  
+
+2019-12-24 10:04:50,452 [5] ?     - The file /images/home/gallery4.jpg was not modified
+
+2019-12-24 10:04:50,454 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/iframe4.png  
+
+2019-12-24 10:04:50,469 [5] ?     - Request finished in 22.8004ms 304 image/jpeg
+
+2019-12-24 10:04:50,478 [15] ?     - The file /images/home/iframe1.png was not modified
+
+2019-12-24 10:04:50,518 [4] ?     - The file /images/home/iframe4.png was not modified
+
+2019-12-24 10:04:50,521 [15] ?     - Request finished in 57.9785ms 304 image/png
+
+2019-12-24 10:04:50,529 [4] ?     - Request finished in 76.6279ms 304 image/png
+
+2019-12-24 10:04:50,533 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/pricing.png  
+
+2019-12-24 10:04:50,535 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product3.jpg  
+
+2019-12-24 10:04:50,547 [4] ?     - The file /images/shop/product3.jpg was not modified
+
+2019-12-24 10:04:50,550 [15] ?     - The file /images/home/pricing.png was not modified
+
+2019-12-24 10:04:50,555 [4] ?     - Request finished in 19.5993ms 304 image/jpeg
+
+2019-12-24 10:04:50,561 [15] ?     - Request finished in 30.7332ms 304 image/png
+
+2019-12-24 10:04:50,590 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/girl2.jpg  
+
+2019-12-24 10:04:50,610 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product5.jpg  
+
+2019-12-24 10:04:50,612 [4] ?     - The file /images/home/girl2.jpg was not modified
+
+2019-12-24 10:04:50,619 [15] ?     - The file /images/shop/product5.jpg was not modified
+
+2019-12-24 10:04:50,660 [4] ?     - Request finished in 58.9095ms 0 image/jpeg
+
+2019-12-24 10:04:50,744 [15] ?     - Request finished in 56.3614ms 304 image/jpeg
+
+2019-12-24 10:04:50,749 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/girl3.jpg  
+
+2019-12-24 10:04:50,769 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/recommend2.jpg  
+
+2019-12-24 10:04:50,772 [4] ?     - The file /images/home/girl3.jpg was not modified
+
+2019-12-24 10:04:50,779 [15] ?     - The file /images/home/recommend2.jpg was not modified
+
+2019-12-24 10:04:50,819 [15] ?     - Request finished in 34.5356ms 304 image/jpeg
+
+2019-12-24 10:04:50,827 [4] ?     - Request finished in 77.8581ms 304 image/jpeg
+
+2019-12-24 10:04:50,835 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/shipping.jpg  
+
+2019-12-24 10:04:50,874 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product10.jpg  
+
+2019-12-24 10:04:50,887 [15] ?     - The file /images/home/shipping.jpg was not modified
+
+2019-12-24 10:04:50,897 [4] ?     - The file /images/shop/product10.jpg was not modified
+
+2019-12-24 10:04:50,899 [15] ?     - Request finished in 65.2162ms 304 image/jpeg
+
+2019-12-24 10:04:50,903 [4] ?     - Request finished in 65.5218ms 304 image/jpeg
+
+2019-12-24 10:04:50,906 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product4.jpg  
+
+2019-12-24 10:04:50,913 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/gallery1.jpg  
+
+2019-12-24 10:04:50,918 [15] ?     - The file /images/shop/product4.jpg was not modified
+
+2019-12-24 10:04:50,934 [4] ?     - The file /images/home/gallery1.jpg was not modified
+
+2019-12-24 10:04:50,937 [15] ?     - Request finished in 26.2705ms 304 image/jpeg
+
+2019-12-24 10:04:50,950 [4] ?     - Request finished in 30.62ms 304 image/jpeg
+
+2019-12-24 10:04:50,956 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product7.jpg  
+
+2019-12-24 10:04:50,967 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/recommend1.jpg  
+
+2019-12-24 10:04:50,967 [15] ?     - The file /images/shop/product7.jpg was not modified
+
+2019-12-24 10:04:50,977 [15] ?     - Request finished in 27.497ms 304 image/jpeg
+
+2019-12-24 10:04:50,983 [4] ?     - The file /images/home/recommend1.jpg was not modified
+
+2019-12-24 10:04:50,991 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product8.jpg  
+
+2019-12-24 10:04:51,016 [15] ?     - The file /images/shop/product8.jpg was not modified
+
+2019-12-24 10:04:51,021 [4] ?     - Request finished in 37.0718ms 304 image/jpeg
+
+2019-12-24 10:04:51,033 [15] ?     - Request finished in 39.2787ms 304 image/jpeg
+
+2019-12-24 10:04:51,038 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product12.jpg  
+
+2019-12-24 10:04:51,045 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product11.jpg  
+
+2019-12-24 10:04:51,057 [15] ?     - The file /images/shop/product11.jpg was not modified
+
+2019-12-24 10:04:51,072 [4] ?     - The file /images/shop/product12.jpg was not modified
+
+2019-12-24 10:04:51,073 [15] ?     - Request finished in 23.5625ms 304 image/jpeg
+
+2019-12-24 10:04:51,083 [4] ?     - Request finished in 39.2206ms 304 image/jpeg
+
+2019-12-24 10:04:51,095 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/recommend3.jpg  
+
+2019-12-24 10:04:51,102 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/js/jquery.scrollUp.min.js  
+
+2019-12-24 10:04:51,107 [15] ?     - The file /images/home/recommend3.jpg was not modified
+
+2019-12-24 10:04:51,149 [15] ?     - Request finished in 32.1054ms 304 image/jpeg
+
+2019-12-24 10:04:51,153 [4] ?     - The file /js/jquery.scrollUp.min.js was not modified
+
+2019-12-24 10:04:51,157 [4] ?     - Request finished in 57.4652ms 304 application/javascript
+
+2019-12-24 10:04:51,164 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/map.png  
+
+2019-12-24 10:04:51,167 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/iframe2.png  
+
+2019-12-24 10:04:51,169 [15] ?     - The file /images/home/map.png was not modified
+
+2019-12-24 10:04:51,176 [15] ?     - Request finished in 14.3663ms 304 image/png
+
+2019-12-24 10:04:51,180 [4] ?     - The file /images/home/iframe2.png was not modified
+
+2019-12-24 10:04:51,182 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/gallery3.jpg  
+
+2019-12-24 10:04:51,188 [4] ?     - Request finished in 20.2214ms 304 image/png
+
+2019-12-24 10:04:51,190 [15] ?     - The file /images/home/gallery3.jpg was not modified
+
+2019-12-24 10:04:51,198 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/lib/jquery/jquery.js  
+
+2019-12-24 10:04:51,198 [15] ?     - Request finished in 14.9989ms 304 image/jpeg
+
+2019-12-24 10:04:51,202 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/css/animate.css  
+
+2019-12-24 10:04:51,206 [4] ?     - The file /lib/jquery/jquery.js was not modified
+
+2019-12-24 10:04:51,220 [15] ?     - The file /css/animate.css was not modified
+
+2019-12-24 10:04:51,227 [4] ?     - Request finished in 22.6806ms 304 application/javascript
+
+2019-12-24 10:04:51,232 [15] ?     - Request finished in 22.392ms 304 text/css
+
+2019-12-24 10:04:51,244 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product1.jpg  
+
+2019-12-24 10:04:51,251 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/lib/bootstrap/js/bootstrap.min.js  
+
+2019-12-24 10:04:51,280 [15] ?     - The file /lib/bootstrap/js/bootstrap.min.js was not modified
+
+2019-12-24 10:04:51,306 [4] ?     - The file /images/shop/product1.jpg was not modified
+
+2019-12-24 10:04:51,307 [15] ?     - Request finished in 45.3386ms 304 application/javascript
+
+2019-12-24 10:04:51,318 [4] ?     - Request finished in 75.0758ms 304 image/jpeg
+
+2019-12-24 10:04:51,325 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product2.jpg  
+
+2019-12-24 10:04:51,340 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product9.jpg  
+
+2019-12-24 10:04:51,350 [15] ?     - The file /images/shop/product2.jpg was not modified
+
+2019-12-24 10:04:51,365 [15] ?     - Request finished in 38.6372ms 304 image/jpeg
+
+2019-12-24 10:04:51,374 [4] ?     - The file /images/shop/product9.jpg was not modified
+
+2019-12-24 10:04:51,380 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/iframe3.png  
+
+2019-12-24 10:04:51,387 [4] ?     - Request finished in 55.7728ms 304 image/jpeg
+
+2019-12-24 10:04:51,391 [15] ?     - The file /images/home/iframe3.png was not modified
+
+2019-12-24 10:04:51,396 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/shop/product6.jpg  
+
+2019-12-24 10:04:51,400 [15] ?     - Request finished in 25.6722ms 304 image/png
+
+2019-12-24 10:04:51,405 [4] ?     - The file /images/shop/product6.jpg was not modified
+
+2019-12-24 10:04:51,407 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44329/css/responsive.css  
+
+2019-12-24 10:04:51,418 [4] ?     - Request finished in 17.8547ms 304 image/jpeg
+
+2019-12-24 10:04:51,420 [15] ?     - The file /css/responsive.css was not modified
+
+2019-12-24 10:04:51,425 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/gallery2.jpg  
+
+2019-12-24 10:04:51,431 [15] ?     - Request finished in 19.9453ms 304 text/css
+
+2019-12-24 10:04:51,433 [4] ?     - The file /images/home/gallery2.jpg was not modified
+
+2019-12-24 10:04:51,441 [4] ?     - Request finished in 13.865ms 304 image/jpeg
+
+2019-12-24 10:04:52,911 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/searchicon.png  
+
+2019-12-24 10:04:52,918 [4] ?     - The file /images/home/searchicon.png was not modified
+
+2019-12-24 10:04:52,926 [4] ?     - Request finished in 39.128ms 304 image/png
+
+2019-12-24 10:04:54,462 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/fonts/fontawesome-webfont.woff?v=4.0.3  
+
+2019-12-24 10:04:54,471 [4] ?     - The file /fonts/fontawesome-webfont.woff was not modified
+
+2019-12-24 10:04:54,488 [4] ?     - Request finished in 22.7973ms 304 application/font-woff
+
+2019-12-24 10:04:55,425 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/ico/favicon.ico  
+
+2019-12-24 10:04:55,457 [4] ?     - Request finished in 17.2453ms 404 
+
+2019-12-24 10:20:21,443 [1] ?     - Application run...
+
+2019-12-24 10:20:35,164 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/  
+
+2019-12-24 10:20:37,868 [4] ?     - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller WebStore.Controllers.HomeController (WebStore).
+
+2019-12-24 10:20:38,922 [4] ?     - Executing action method WebStore.Controllers.HomeController.Index (WebStore) - Validation state: Valid
+
+2019-12-24 10:20:38,929 [4] ?     - Index action requsted
+
+2019-12-24 10:20:38,938 [4] ?     - Critical! All cats are beautiful!
+
+2019-12-24 10:20:38,943 [4] ?     - Error! All cats are beautiful!
+
+2019-12-24 10:20:38,950 [4] ?     - Warning! All cats are beautiful!
+
+2019-12-24 10:21:29,541 [4] ?     - Executed action method WebStore.Controllers.HomeController.Index (WebStore), returned result Microsoft.AspNetCore.Mvc.ViewResult in 50603.8579ms.
+
+2019-12-24 10:21:29,902 [4] ?     - Executing ViewResult, running view Index.
+
+2019-12-24 10:21:33,108 [4] ?     - Executed ViewResult - view Index executed in 3531.7273ms.
+
+2019-12-24 10:21:33,114 [4] ?     - Executed action WebStore.Controllers.HomeController.Index (WebStore) in 55239.8342ms
+
+2019-12-24 10:21:33,381 [4] ?     - Request finished in 57975.5321ms 200 text/html; charset=utf-8
+
+2019-12-24 10:21:33,427 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/home/girl2.jpg  
+
+2019-12-24 10:21:34,225 [5] ?     - Sending file. Request path: '/images/home/girl2.jpg'. Physical path: 'C:\Users\Admin\Source\Repos\RegulL\WebStore\WebStore\Ui\WebStore\wwwroot\images\home\girl2.jpg'
+
+2019-12-24 10:21:34,241 [5] ?     - Request finished in 808.3821ms 200 image/jpeg
+
+2019-12-24 10:40:34,895 [1] ?     - Application run...
+
+2019-12-24 10:45:05,032 [1] ?     - Application run...
+
+2019-12-24 10:45:31,275 [4] ?     - Critical! All cats are beautiful!
+
+2019-12-24 10:45:31,298 [4] ?     - Error! All cats are beautiful!
+
+2019-12-24 10:45:31,315 [4] ?     - Warning! All cats are beautiful!
+
+2019-12-24 10:48:48,470 [4] ?     - Critical! All cats are beautiful!
+
+2019-12-24 10:48:48,475 [4] ?     - Error! All cats are beautiful!
+
+2019-12-24 10:48:48,478 [4] ?     - Warning! All cats are beautiful!
+

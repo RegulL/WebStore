@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebStore.Domain.Entities;
-using WebStore.Domain.Filters;
 using WebStore.DomainNew.Dto;
+using WebStore.DomainNew.Entities;
+using WebStore.DomainNew.Filters;
 
 namespace WebStore.Interfaces
 {

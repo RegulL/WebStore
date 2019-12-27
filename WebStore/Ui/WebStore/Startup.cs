@@ -55,7 +55,6 @@ namespace WebStore
             services.AddTransient<IUserLockoutStore<User>, CustomUserStore>();
             services.AddTransient<IRoleStore<IdentityRole>, RolesClient>();
 
-
             services.Configure<IdentityOptions>(option =>
             {
                 option.Password.RequiredLength = 4;
@@ -63,7 +62,6 @@ namespace WebStore
                 option.Password.RequireUppercase = false;
                 option.Password.RequireDigit = false;
                 option.Password.RequireNonAlphanumeric = false;
-
                 option.User.RequireUniqueEmail = true;
             });
 
@@ -72,8 +70,11 @@ namespace WebStore
                o.Cookie.Expiration = TimeSpan.FromDays(100);
             });
 
+
+            //Корзина
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<ICartService, CookieCartService>();
+            services.AddScoped<ICartService, CartService>();
+            services.AddScoped<ICartStore, CookiesCartStore>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -90,13 +91,30 @@ namespace WebStore
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseStatusCodePagesWithRedirects("~/home/ErrorStatus/{0}");
+
+            app.UseWelcomePage("/welcome");
+
+            app.Use(async (context, next) =>
+            {
+                bool isError = false;
+                if (isError)
+                {
+                    await context.Response.WriteAsync("Error occured. You're in custom pipeline module...");
+                }
+                else
+                {
+                    await next.Invoke();
+                }
+            });
+
             app.UseStaticFiles();
 
             app.UseAuthentication();
 
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
-            app.UseWelcomePage("/welcome");
+            
 
             app.UseMvc( routes => 
             {
