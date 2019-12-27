@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using WebStore.Domain.Filters;
 using WebStore.DomainNew.ViewModels;
 using WebStore.Infrastructure;
@@ -14,17 +15,25 @@ namespace WebStore.Controllers
     public class HomeController : Controller
     {
         private readonly IProductService _productService;
-        private readonly IValueService _valueService;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(IProductService productService, IValueService valueService)
+        public HomeController(IProductService productService, ILogger<HomeController> logger)
         {
             _productService = productService;
-            _valueService = valueService;
+            _logger = logger;
         }
 
         [SimpleActionFilter]
         public IActionResult Index(int? categoryId, int? brandId)
         {
+            //throw new Exception("Oops...");
+
+            _logger.LogInformation(message: "Index action requsted");
+            _logger.LogCritical(message: "Critical! All cats are beautiful!");
+            _logger.LogError(message: "Error! All cats are beautiful!");
+            _logger.LogWarning(message: "Warning! All cats are beautiful!");
+            _logger.LogDebug(message: "Debug! All cats are beautiful!");
+
             var products = _productService.GetProducts(new ProductFilter
             { BrandId = brandId, CategoryId = categoryId });
 
@@ -58,12 +67,25 @@ namespace WebStore.Controllers
 
         public async Task<IActionResult> Error404()
         {
-            var values = await _valueService.GetAsync();
-            return View(values);
+            return View();
         }
         public IActionResult ContactUs()
         {
             return View();
+        }
+
+        public IActionResult Error()
+        {
+            return View();
+        }
+
+
+        public IActionResult ErrorStatus(string id)
+        {
+            if (id == "404")
+                return RedirectToAction("NotFound");
+
+            return Content($"Статуcный код ошибки: {id}");
         }
     }
 }
