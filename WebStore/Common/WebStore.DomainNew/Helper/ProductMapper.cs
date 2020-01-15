@@ -18,7 +18,12 @@ namespace WebStore.DomainNew.Helper
                 Order = p.Order,
                 Price = p.Price,
                 ImageUrl = p.ImageUrl,
-                Brand = p.BrandId.HasValue ? new BrandDto { Id = p.Brand.Id, Name = p.Brand.Name } : null
+                Brand = p.BrandId.HasValue ? new BrandDto { Id = p.Brand.Id, Name = p.Brand.Name } : null,
+                Category = new CategoryDto 
+                {
+                    Id = p.CategoryId,
+                    Name = p.Category.Name
+                }
             };
 
         public static OrderDto OrderToDto(this Order o) =>

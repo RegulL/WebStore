@@ -23,6 +23,18 @@ namespace WebStore.ServicesHosting.Controllers
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
         }
 
+        [HttpGet(template: "brands/{id}")]
+        public Brand GetBrandById(int id)
+        {
+            return _productService.GetBrandById(id);
+        }
+
+        [HttpGet(template:"categories/{id}")]
+        public Category GetCategoryById(int id)
+        {
+            return _productService.GetCategoryById(id);
+        }
+
         [HttpGet(template: "brands")]
         public IEnumerable<Brand> GetBrands()
         {
@@ -36,6 +48,7 @@ namespace WebStore.ServicesHosting.Controllers
         }
 
 
+        [HttpGet("{id}"), ActionName("Get")]
         public ProductDto GetProductById(int id)
         {
             return _productService.GetProductById(id);
