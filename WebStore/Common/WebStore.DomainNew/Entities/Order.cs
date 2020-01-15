@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using WebStore.Domain.Entities.Base;
+using WebStore.DomainNew.Entities.Base;
 
 namespace WebStore.DomainNew.Entities
 {

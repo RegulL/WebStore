@@ -13,7 +13,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Swashbuckle.AspNetCore.Swagger;
 using WebStore.Clients.Services;
 using WebStore.DAL;
 using WebStore.DomainNew.Entities;
@@ -22,6 +21,7 @@ using WebStore.Logger;
 using WebStore.Services;
 using WebStore.Services.InMemory;
 using WebStore.Services.SQL;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace WebStore.ServicesHosting
 {
@@ -41,7 +41,7 @@ namespace WebStore.ServicesHosting
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc(name: "v1", new Info { Title = "My WebStore Api", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "My WebStore API", Version = "v1" });
             });
 
             services.AddDbContext<WebStoreContext>(optionsAction: options => options.UseSqlServer
@@ -52,7 +52,7 @@ namespace WebStore.ServicesHosting
             services.AddScoped<IProductService, SQLProductService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<ICartService, CookieCartService>();
+            services.AddScoped<ICartService, CartService>();
 
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<WebStoreContext>()
                 .AddDefaultTokenProviders();
@@ -62,13 +62,15 @@ namespace WebStore.ServicesHosting
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddLog4net();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My WebStore API V1");
+            });
+
             if (env.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI(c => 
-                {
-                    c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "My WebStore Api");
-                });
                 app.UseDeveloperExceptionPage();
             }
             else

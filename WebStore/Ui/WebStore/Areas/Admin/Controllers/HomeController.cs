@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebStore.Domain.Filters;
+using WebStore.DomainNew.Filters;
 using WebStore.Interfaces;
 
 namespace WebStore.Areas.Admin.Controllers

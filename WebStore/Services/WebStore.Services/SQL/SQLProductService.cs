@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebStore.DAL;
-using WebStore.Domain.Entities;
-using WebStore.Domain.Filters;
 using WebStore.DomainNew.Dto;
+using WebStore.DomainNew.Entities;
+using WebStore.DomainNew.Filters;
 using WebStore.DomainNew.Helper;
 using WebStore.Interfaces;
 
@@ -54,5 +54,6 @@ namespace WebStore.Services.SQL
                 query = query.Where(c => c.CategoryId.Equals(filter.CategoryId.Value));
             return query.Select(q => q.ToDto()).ToList();
         }
+
     }
 }

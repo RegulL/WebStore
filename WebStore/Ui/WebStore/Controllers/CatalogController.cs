@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebStore.Domain.Filters;
+using WebStore.DomainNew.Filters;
 using WebStore.DomainNew.ViewModels;
 using WebStore.Interfaces;
 
@@ -46,7 +46,7 @@ namespace WebStore.Controllers
             var product = _productService.GetProductById(id);
             if (product == null)
                 return NotFound();
-            return View(new ProductViewModel
+            var model = new ProductViewModel
             {
                 Id = product.Id,
                 ImageUrl = product.ImageUrl,
@@ -54,7 +54,9 @@ namespace WebStore.Controllers
                 Order = product.Order,
                 Price = product.Price,
                 BrandName = product.Brand?.Name ?? string.Empty
-            });
+            };
+            return View(model);
         }
+
     }
 }

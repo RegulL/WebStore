@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WebStore.Domain.Entities;
 using WebStore.DomainNew.Dto;
 using WebStore.DomainNew.Dto.Order;
 using WebStore.DomainNew.Entities;

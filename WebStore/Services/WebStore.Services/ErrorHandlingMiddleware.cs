@@ -19,12 +19,12 @@ namespace WebStore.Services
         {
             try
             {
-                _next(context);
+                await _next(context);
             }
             catch (Exception ex)
             {
                 await HandleExceptionAsync(context, ex);
-                throw ex;
+                throw;
             }
         }
 

@@ -20,7 +20,7 @@ namespace WebStore
         public static void Main(string[] args)
         {
             var log4netconf = new XmlDocument();
-            log4netconf.Load(inStream: File.OpenRead(path: "log4net.config"));
+            log4netconf.Load(inStream: File.OpenRead(path:"log4net.config"));
 
             var repo = log4net.LogManager.CreateRepository(Assembly.GetEntryAssembly(), typeof(log4net.Repository.Hierarchy.Hierarchy));
 

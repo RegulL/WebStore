@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WebStore.Domain.Entities;
 using WebStore.DomainNew.Entities;
 
 namespace WebStore.DAL

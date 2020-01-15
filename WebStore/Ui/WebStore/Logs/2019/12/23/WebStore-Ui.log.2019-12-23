@@ -1,0 +1,82 @@
+2019-12-23 10:54:34,858 [1] ?     - Application run...
+
+2019-12-23 10:55:08,282 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/  
+
+2019-12-23 10:55:13,792 [4] ?     - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller WebStore.Controllers.HomeController (WebStore).
+
+2019-12-23 10:55:14,924 [4] ?     - Executing action method WebStore.Controllers.HomeController.Index (WebStore) - Validation state: Valid
+
+2019-12-23 10:55:14,931 [4] ?     - Index action requsted
+
+2019-12-23 10:55:14,935 [4] ?     - Critical! All cats are beautiful!
+
+2019-12-23 10:55:14,942 [4] ?     - Error! All cats are beautiful!
+
+2019-12-23 10:55:14,945 [4] ?     - Warning! All cats are beautiful!
+
+2019-12-23 10:56:29,542 [4] ?     - Executed action method WebStore.Controllers.HomeController.Index (WebStore), returned result Microsoft.AspNetCore.Mvc.ViewResult in 74585.4671ms.
+
+2019-12-23 10:56:29,960 [4] ?     - Executing ViewResult, running view Index.
+
+2019-12-23 10:56:32,484 [4] ?     - Executed ViewResult - view Index executed in 2911.492ms.
+
+2019-12-23 10:56:32,526 [4] ?     - Executed action WebStore.Controllers.HomeController.Index (WebStore) in 78690.3692ms
+
+2019-12-23 10:56:32,649 [4] ?     - Request finished in 84275.0704ms 200 text/html; charset=utf-8
+
+2019-12-23 10:56:40,029 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/images/ico/favicon.ico  
+
+2019-12-23 10:56:40,045 [4] ?     - Request finished in 14.6068ms 404 
+
+2019-12-23 10:58:35,918 [1] ?     - Application run...
+
+2019-12-23 10:58:48,832 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/  
+
+2019-12-23 10:58:51,860 [4] ?     - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller WebStore.Controllers.HomeController (WebStore).
+
+2019-12-23 10:58:53,367 [4] ?     - Executing action method WebStore.Controllers.HomeController.Index (WebStore) - Validation state: Valid
+
+2019-12-23 10:58:53,382 [4] ?     - Index action requsted
+
+2019-12-23 10:58:53,395 [4] ?     - Critical! All cats are beautiful!
+
+2019-12-23 10:58:53,408 [4] ?     - Error! All cats are beautiful!
+
+2019-12-23 10:58:53,413 [4] ?     - Warning! All cats are beautiful!
+
+2019-12-23 10:59:07,196 [4] ?     - Executed action method WebStore.Controllers.HomeController.Index (WebStore), returned result Microsoft.AspNetCore.Mvc.ViewResult in 13764.1244ms.
+
+2019-12-23 10:59:07,642 [4] ?     - Executing ViewResult, running view Index.
+
+2019-12-23 10:59:09,792 [4] ?     - Executed ViewResult - view Index executed in 2529.7639ms.
+
+2019-12-23 10:59:09,982 [4] ?     - Executed action WebStore.Controllers.HomeController.Index (WebStore) in 17931.9009ms
+
+2019-12-23 10:59:10,146 [4] ?     - Request finished in 21331.3027ms 200 text/html; charset=utf-8
+
+2019-12-23 11:05:54,432 [1] ?     - Application run...
+
+2019-12-23 11:06:07,710 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44329/  
+
+2019-12-23 11:06:09,247 [4] ?     - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller WebStore.Controllers.HomeController (WebStore).
+
+2019-12-23 11:06:10,408 [4] ?     - Executing action method WebStore.Controllers.HomeController.Index (WebStore) - Validation state: Valid
+
+2019-12-23 11:06:10,720 [4] ?     - Index action requsted
+
+2019-12-23 11:06:11,039 [4] ?     - Critical! All cats are beautiful!
+
+2019-12-23 11:06:11,370 [4] ?     - Error! All cats are beautiful!
+
+2019-12-23 11:06:11,575 [4] ?     - Warning! All cats are beautiful!
+
+2019-12-23 11:06:42,439 [4] ?     - Executed action method WebStore.Controllers.HomeController.Index (WebStore), returned result Microsoft.AspNetCore.Mvc.ViewResult in 31573.509ms.
+
+2019-12-23 11:06:43,938 [4] ?     - Executing ViewResult, running view Index.
+
+2019-12-23 11:06:56,233 [4] ?     - Executed ViewResult - view Index executed in 13720.4931ms.
+
+2019-12-23 11:06:56,242 [4] ?     - Executed action WebStore.Controllers.HomeController.Index (WebStore) in 46987.1605ms
+
+2019-12-23 11:06:56,256 [4] ?     - Request finished in 48569.8372ms 200 text/html; charset=utf-8
+
