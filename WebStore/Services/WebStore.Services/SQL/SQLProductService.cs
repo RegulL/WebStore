@@ -19,6 +19,9 @@ namespace WebStore.Services.SQL
         {
             _context = context;
         }
+
+       
+
         public IEnumerable<Brand> GetBrands()
         {
             return _context.Brands.ToList();
@@ -27,6 +30,16 @@ namespace WebStore.Services.SQL
         public IEnumerable<Category> GetCategories()
         {
             return _context.Categories.ToList();
+        }
+        
+        public Brand GetBrandById(int id)       
+        {
+            return _context.Brands.FirstOrDefault(b => b.Id == id);            
+        }
+        
+        public Category GetCategoryById(int id)
+        {
+            return _context.Categories.FirstOrDefault(c => c.Id == id);
         }
 
         public ProductDto GetProductById(int id)

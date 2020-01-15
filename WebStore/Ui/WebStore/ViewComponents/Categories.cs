@@ -17,47 +17,66 @@ namespace WebStore.ViewComponents
         {
             _productService = productService;
         }
-        public async Task<IViewComponentResult> InvokeAsync()
+
+
+        public async Task<IViewComponentResult> InvokeAsync(string sectionId)
         {
-            var Categories = GetCategories();
-            return View(Categories);
+            int.TryParse(sectionId, out var sectionIdInt);
+
+            var sections = GetCategory(sectionIdInt, out var parentSectionId);
+            return View(new CategoryCompleteViewModel
+            {
+                Categories = sections,
+                CurrentCategoryId = sectionIdInt,
+                CurrentParentCategoryId = parentSectionId
+            });
+
         }
 
-        private List<CategoryViewModel> GetCategories()
+        private List<CategoryViewModel> GetCategory(int? sectionId, out int? parentSectionId)
         {
+            parentSectionId = null;
+
             var categories = _productService.GetCategories();
 
-            var parentSections = categories.Where(p => !p.ParentId.HasValue).ToArray();
-            var parentCategories = new List<CategoryViewModel>();
-            foreach (var parCat in parentSections)
+            var parentCategories = categories.Where(x => !x.ParentId.HasValue).ToArray();
+            var parentSections = new List<CategoryViewModel>();
+            foreach (var parentCategory in parentCategories)
             {
-                parentCategories.Add(new CategoryViewModel()
+                parentSections.Add(new CategoryViewModel()
                 {
-                    Id = parCat.Id,
-                    Name = parCat.Name,
-                    Order = parCat.Order,
+                    Id = parentCategory.Id,
+                    Name = parentCategory.Name,
+                    Order = parentCategory.Order,
                     ParentCategory = null
                 });
             }
-
-            foreach (var CVM in parentCategories)
+            foreach (var sectionViewModel in parentSections)
             {
-                var childCat = categories.Where(c => c.ParentId == CVM.Id);
-                foreach (var childCategory in childCat)
+                var childCategories = categories.Where(c => c.ParentId == sectionViewModel.Id);
+                foreach (var childCategory in childCategories)
                 {
-                    CVM.ChildCategories.Add(new CategoryViewModel()
+                    
+                    if (childCategory.Id == sectionId)
+                        parentSectionId = sectionViewModel.Id;
+
+                    sectionViewModel.ChildCategories.Add(new CategoryViewModel()
                     {
                         Id = childCategory.Id,
                         Name = childCategory.Name,
                         Order = childCategory.Order,
-                        ParentCategory = CVM
+                        ParentCategory = sectionViewModel
                     });
                 }
-                CVM.ChildCategories = CVM.ChildCategories.OrderBy(c => c.Order).ToList();
+
+                sectionViewModel.ChildCategories = sectionViewModel.ChildCategories
+                    .OrderBy(c => c.Order)
+                    .ToList();
             }
 
-            parentCategories = parentCategories.OrderBy(c => c.Order).ToList();
-            return parentCategories;
+            parentSections = parentSections.OrderBy(c => c.Order).ToList();
+
+            return parentSections;
         }
     }
 }

@@ -62,11 +62,10 @@
                 <div class="col-sm-5">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a asp-controller="Account" asp-action="Register"></i> Account</a></li>
+                            <li><a href="#"><i class="fa fa-check"></i> Account</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a asp-controller="Account" asp-action="Login"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a asp-controller="Cart" asp-action="Details"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            @*<li><a asp-controller="Account" asp-action="Login"><i class="fa fa-lock"></i> Login</a></li>*@
                         </ul>
                     </div>
                 </div>
@@ -94,11 +93,12 @@
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li>
-                                <a asp-controller="Home" asp-action="Index"
-                                   class="active">Home</a>
+                                <a is-active-route
+                                   asp-controller="Home" 
+                                   asp-action="Index">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                <a is-active-route asp-controller="Catalog" asp-action="Shop">Shop<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a asp-controller="Catalog" asp-action="Shop">Products</a></li>
                                     <li><a asp-controller="Home" asp-action="Checkout">Checkout</a></li>
@@ -107,15 +107,15 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#">Blog<i class="fa fa-angle-down"></i></a>
+                                <a is-active-route asp-controller="Blog" asp-action="Blog">Blog<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a asp-controller="Blog" asp-action="Blog">Blog List</a></li>
                                     <li><a asp-controller="Blog" asp-action="BlogSingle">Blog Single</a></li>
                                 </ul>
                             </li>
-                            <li><a asp-controller="Home" asp-action="Error404">404</a></li>
-                            <li><a asp-controller="Home" asp-action="ContactUs">Contact</a></li>
-                            <li><a asp-controller="Employee" asp-action="Index">Users</a></li>
+                            <li><a is-active-route asp-controller="Home" asp-action="Error404">404</a></li>
+                            <li><a is-active-route asp-controller="Home" asp-action="ContactUs">Contact</a></li>
+                            <li><a is-active-route asp-controller="Employee" asp-action="Index">Users</a></li>
                         </ul>
                     </div>
                 </div>

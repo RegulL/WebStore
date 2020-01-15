@@ -17,10 +17,15 @@ namespace WebStore.ViewComponents
             _productService = productService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string brandId)
         {
-            var Brands = GetBrands();
-            return View(Brands);
+            int.TryParse(brandId, out var brandIdInt);
+            var brands = GetBrands();
+            return View(new BrandCompleteViewModel()
+            {
+                Brands = brands,
+                CurrentBrandId = brandIdInt
+            });
         }
 
         private List<BrandViewModel> GetBrands()

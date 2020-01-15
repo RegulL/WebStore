@@ -18,6 +18,20 @@ namespace WebStore.Clients.Services
         }
         protected override string ServiceAddress { get; } = "api/products";
 
+        public Brand GetBrandById(int id)
+        {
+            var url = $"{ServiceAddress}/brands/{id}";
+            var result = Get<Brand>(url);
+            return result;
+        }
+
+        public Category GetCategoryById(int id)
+        {
+            var url = $"{ServiceAddress}/categories/{id}";
+            var result = Get<Category>(url);
+            return result;
+        }
+
         public IEnumerable<Brand> GetBrands()
         {
             string url = $"{ServiceAddress}/brands";
@@ -29,6 +43,8 @@ namespace WebStore.Clients.Services
             string url = $"{ServiceAddress}/categories";
             return Get<List<Category>>(url);
         }
+
+        
 
         public ProductDto GetProductById(int id)
         {

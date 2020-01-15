@@ -63,6 +63,7 @@ a#scrollUp i{
 }
 
 
+
 /*************************
 *******Header CSS******
 **************************/
@@ -2521,3 +2522,8 @@ h2.title {
 }
 
 
+.panel-body ul li.active,
+.panel-heading h4.active,
+.brands-name ul li.active{
+    text-decoration: underline;
+}
